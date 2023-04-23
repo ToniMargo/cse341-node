@@ -1,0 +1,19 @@
+{
+  "name": "cse341-node",
+  "version": "1.0.0",
+  "description": "Node project for the CSE 341 course.",
+  "main": "app.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ToniMargo/cse341-node.git"
+  },
+  "author": "Antonio Martinez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ToniMargo/cse341-node/issues"
+  },
+  "homepage": "https://github.com/ToniMargo/cse341-node#readme"
+}
