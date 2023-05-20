@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/ToniMargo/cse341-node/issues"
   },
-  "homepage": "https://github.com/ToniMargo/cse341-node#readme"
+  "homepage": "https://github.com/ToniMargo/cse341-node#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongodb": "^5.5.0",
+    "nodemon": "^2.0.22"
+  }
 }

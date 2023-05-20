@@ -1,13 +1,25 @@
-const http = require("http");
+const express = require("express");
+const bodyParser = require("body-parser");
+const MongoClient = require("mongodb").MongoClient;
+const mongodb = require("./models/connect");
+const contactsRoutes = require("./routes/contacts");
 
-const hostname = "127.0.0.1";
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
+const app = express();
 
-const server = http
-  .createServer((req, res) => {
-    res.writeHead(200, { "Content-Type": "text/plain" });
-    res.end("Toni Margo");
+app
+  .use(bodyParser.json())
+  .use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    next();
   })
-  .listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
-  });
+  .use("/contacts", contactsRoutes);
+
+mongodb.initDb((err, mongodb) => {
+  if (err) {
+    console.log(err);
+  } else {
+    app.listen(port);
+    console.log(`Connected to DB and listening on ${port}`);
+  }
+});
