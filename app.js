@@ -1,6 +1,5 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const MongoClient = require("mongodb").MongoClient;
 const mongodb = require("./models/connect");
 
 const port = process.env.PORT || 8080;
@@ -14,7 +13,7 @@ app
   })
   .use("/", require("./routes"));
 
-mongodb.initDb((err, mongodb) => {
+mongodb.initDb((err) => {
   if (err) {
     console.log(err);
   } else {
