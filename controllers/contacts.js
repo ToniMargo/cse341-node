@@ -18,4 +18,5 @@ const getSingleData = async (req, res, next) => {
     res.status(200).json(contact);
   });
 };
+
 module.exports = { getData, getSingleData };
