@@ -6,7 +6,6 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 app
-  .use(bodyParser.json())
   .use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader(
@@ -17,7 +16,8 @@ app
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     next();
   })
-  .use('/', require('./routes'));
+  .use('/', require('./routes'))
+  .use(bodyParser.json());
 
 mongodb.initDb((err) => {
   if (err) {
